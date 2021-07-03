@@ -1,0 +1,40 @@
+Cryptography types :
+    1)classic Crypto :
+        ceaser,atbash,vegenere ...
+    2)modern Crypto :
+        I)symetric Crypto:  same key
+            AES (Advaced Encryption Standard)
+            ciphertext = AES_encrypt(plaintext,key)
+            plaintext = AES_decrypt(ciphertext,key)
+
+        II)Asymetric Crypto:   public key, private key
+            RSA
+            ciphertext = RSA_encrypt(plaintext,public_key)
+            plaintext = RSA_decrypt(ciphertext,private_key)
+            RSA)
+                public_key = (N modulus ,e (public exponent))
+                private_key = (N modulus, d (private exponent))
+
+
+                N = p * q (p,q are prime)
+                ciphertext =    (plaintext ** e) % N
+
+                plaintext  =    (ciphertext ** d) % N
+
+                phi(n) = (p - 1)*(q - 1) 
+                e premier avec phi 
+                d = inverse_modulaire(e,phi) ; (e ** d = 1 % phi )
+                
+                                 |         |                  ciphA
+        msgA                   A |         | B              msgB
+    pubkeyA,privkeyA             |         |            pubkeyB,privkeyB
+
+
+    A send encrypted message to B : ciphA=RSA_encrypt(msgA,pubkeyB) 
+    B decrypts it : RSA_decrypt(ciphA,privkeyB) --> msgA
+    B responds to A : ciphB = RSA_encrypt(msgB,pubkeyA)
+    A decrypts it : RSA_decrypt(ciphB,privkeyA) --> msgB
+
+
+
+
