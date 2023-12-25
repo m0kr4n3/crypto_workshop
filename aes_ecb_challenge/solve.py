@@ -20,7 +20,7 @@ def encrypt(plaintext):
     return b64dec(result)
 
 
-def LeakFlag():
+def leak_flag():
     flag=""
     while "}" not in flag:
         for char in printable:
@@ -31,5 +31,7 @@ def LeakFlag():
                 flag+=char
                 print("The flag is : {}".format(flag))
 
-start()
-LeakFlag()
+
+if __name__=="__main__":
+    start()
+    leak_flag()
